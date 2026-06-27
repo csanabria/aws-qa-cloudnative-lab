@@ -1,0 +1,30 @@
+PS G:\Diplomados\Diplomados\13AutomatizacionInteligentedePruebasdeSoftware\Modulo5\AWS-QA-CLOUDENATIVE-LAB> npm test
+
+> aws-qa-cloudnative-lab@1.0.0 test
+> jest --ci --coverage
+
+ FAIL  test/api.test.js
+  ● Test suite failed to run
+
+    Cannot find module '../src/server' from 'test/api.test.js'
+
+      1 | const request = require("supertest");
+    > 2 | const app = require("../src/server");
+        |             ^
+      3 |
+      4 | describe("AWS QA Cloud Native API", () => {
+      5 |   test("GET / should return app status", async () => {
+
+      at Resolver._throwModNotFoundError (node_modules/jest-resolve/build/resolver.js:427:11)
+      at Object.require (test/api.test.js:2:13)
+
+----------|---------|----------|---------|---------|-------------------
+File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------|---------|----------|---------|---------|-------------------
+All files |       0 |        0 |       0 |       0 |                   
+----------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.782 s
+Ran all test suites.
