@@ -1,0 +1,33 @@
+version: 0.2
+
+env:
+  variables:
+    IMAGE_NAME: "aws-qa-cloudnative-lab"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo "Instalando dependencias..."
+      - npm ci
+
+  pre_build:
+    commands:
+      - echo "Ejecutando pruebas automatizadas..."
+      - npm test
+
+  build:
+    commands:
+      - echo "Construyendo imagen Docker..."
+      - docker build -t $IMAGE_NAME:latest .
+
+  post_build:
+    commands:
+      - echo "Build finalizado correctamente."
+      - echo "Fecha:"
+      - date
+
+artifacts:
+  files:
+    - '**/*'
